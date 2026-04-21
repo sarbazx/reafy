@@ -167,10 +167,15 @@ export struct ClickingGame {
           this.DifficultyButton('Normal', $r('app.color.color_primary'))
           this.DifficultyButton('Hard', $r('app.color.color_primary_dark'))
           if (this.highScore > 0) {
-            Text(`${$r('app.string.label_best')}: ${this.highScore}`)
-              .fontSize(12)
-              .fontColor($r('app.color.color_primary_dark'))
-              .margin({ top: 10 })
+            Row() {
+              Text($r('app.string.label_best'))
+                .fontSize(12)
+                .fontColor($r('app.color.color_primary_dark'))
+              Text(`: ${this.highScore}`)
+                .fontSize(12)
+                .fontColor($r('app.color.color_primary_dark'))
+            }
+            .margin({ top: 10 })
           }
         }
         .width('100%')
@@ -186,14 +191,27 @@ export struct ClickingGame {
             .fontWeight(FontWeight.Bold)
             .fontColor($r('app.color.color_primary'))
             .margin({ bottom: 8 })
-          Text(`${$r('app.string.label_score')}: ${this.score}`)
-            .fontSize(18)
-            .fontColor($r('app.color.color_primary_dark'))
-            .margin({ bottom: 4 })
-          Text(`${$r('app.string.label_best')}: ${this.highScore}`)
-            .fontSize(14)
-            .fontColor($r('app.color.color_primary_dark'))
-            .margin({ bottom: 20 })
+          Row() {
+            Text($r('app.string.label_score'))
+              .fontSize(18)
+              .fontColor($r('app.color.color_primary_dark'))
+            Text(`: ${this.score}`)
+              .fontSize(18)
+              .fontColor($r('app.color.color_primary_dark'))
+          }
+          .margin({ bottom: 4 })
+
+          Row() {
+            Text($r('app.string.label_best'))
+              .fontSize(14)
+              .fontColor($r('app.color.color_primary_dark'))
+            Text(`: ${this.highScore}`)
+              .fontSize(14)
+              .fontColor($r('app.color.color_primary_dark'))
+
+          }
+          .margin({ bottom: 20 })
+
           Button($r('app.string.btn_play_again'))
             .width('60%')
             .height('12%')
